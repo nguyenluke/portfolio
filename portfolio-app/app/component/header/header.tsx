@@ -14,7 +14,7 @@ interface HeaderProps {
 
 export default function Header ({ menuItems }: HeaderProps) {
   return (
-    <header className="flex justify-between items-center p-4">
+    <header className="flex justify-between items-center ml-4 mt-4">
         <div className="text-md">TRAN TIEN QUOC NGUYEN</div>
         <div className="text-4xl">LUKE</div>
         <div>
@@ -23,7 +23,7 @@ export default function Header ({ menuItems }: HeaderProps) {
                     <Link
                         key={item.id}
                         href={item.href}
-                        className="px-3 py-2 text-sm hover:underline"
+                        className="px-4 py-2 text-sm hover:underline"
                     >
                         {item.label.toUpperCase()}
                     </Link>
