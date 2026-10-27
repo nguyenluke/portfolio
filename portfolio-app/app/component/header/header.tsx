@@ -14,10 +14,10 @@ interface HeaderProps {
 
 export default function Header ({ menuItems }: HeaderProps) {
   return (
-    <header className="flex justify-between items-center ml-4 mt-4">
-        <div className="text-md">TRAN TIEN QUOC NGUYEN</div>
-        <div className="text-4xl">LUKE</div>
-        <div>
+    <header className="grid grid-cols-3 items-center px-4">
+        <div className="text-md justify-self-start">TRAN TIEN QUOC NGUYEN</div>
+        <div className="text-4xl justify-self-center">LUKE</div>
+        <div className="justify-self-end">
             {menuItems.map((item) => {
                 return (
                     <Link
