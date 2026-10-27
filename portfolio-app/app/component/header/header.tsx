@@ -14,7 +14,7 @@ interface HeaderProps {
 
 export default function Header ({ menuItems }: HeaderProps) {
   return (
-    <header className="grid grid-cols-3 items-center px-4">
+    <header className="grid grid-cols-3 items-center p-4">
         <div className="text-md justify-self-start">TRAN TIEN QUOC NGUYEN</div>
         <div className="text-4xl justify-self-center">LUKE</div>
         <div className="justify-self-end">

@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center ml-96">
+    <div className="flex min-h-[90vh] items-center justify-center ml-96">
         <div className="text-md flex flex-col justify-center items-start gap-8">
           <div>
             __HCMC - videographer/photographer/mixing engineer
