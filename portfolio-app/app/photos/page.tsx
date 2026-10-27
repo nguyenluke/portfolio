@@ -1,4 +1,4 @@
-'user client';
+'use client';
 
 type Photo = {
   src: string;
@@ -27,8 +27,8 @@ const columns: Photo[][] = [
 
 export default function Photos() {
     return (
-        <main className="p-4">
-            <section
+        <div className="p-4">
+            <div
                 aria-label="Photography portfolio"
                 className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3"
             >
@@ -46,7 +46,7 @@ export default function Photos() {
                     ))}
                 </div>
                 ))}
-            </section>
-        </main>
+            </div>
+        </div>
     );
 }

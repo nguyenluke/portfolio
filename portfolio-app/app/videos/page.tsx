@@ -1,4 +1,4 @@
-'user client';
+'use client';
 
 export default function Videos() {
     return (
