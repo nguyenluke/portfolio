@@ -14,16 +14,16 @@ interface HeaderProps {
 
 export default function Header ({ menuItems }: HeaderProps) {
   return (
-    <header className="flex justify-between items-center p-4">
-        <div className="text-md">TRAN TIEN QUOC NGUYEN</div>
-        <div className="text-4xl">LUKE</div>
-        <div>
+    <header className="grid grid-cols-3 items-center p-4">
+        <div className="text-md justify-self-start">TRAN TIEN QUOC NGUYEN</div>
+        <div className="text-4xl justify-self-center">LUKE</div>
+        <div className="justify-self-end">
             {menuItems.map((item) => {
                 return (
                     <Link
                         key={item.id}
                         href={item.href}
-                        className="px-3 py-2 text-sm hover:underline"
+                        className="px-4 py-2 text-sm hover:underline"
                     >
                         {item.label.toUpperCase()}
                     </Link>
