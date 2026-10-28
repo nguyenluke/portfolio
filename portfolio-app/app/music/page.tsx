@@ -37,71 +37,74 @@ export default function Music() {
       (index) => (index - 1 + projects.length) % projects.length
     );
   }
+  
+    return (
+        <div className="flex min-h-[90vh] flex-col justify-center px-4">
 
-  return (
-    <div className="flex min-h-[90vh] flex-col justify-center">
+            {/* Main carousel row */}
+            <div className="mx-auto grid w-full max-w-7xl grid-cols-[auto_1fr_auto] items-center gap-4 md:gap-8 lg:gap-12">
 
-      {/* Current project */}
-      <div className="mx-auto grid w-full max-w-6xl grid-cols-1 items-center gap-8 md:grid-cols-2">
-
-        {/* YouTube video */}
-        <div className="aspect-video w-full overflow-hidden bg-[#7F011F]">
-          <iframe
-            key={currentProject.videoId}
-            className="h-full w-full"
-            src={`https://www.youtube-nocookie.com/embed/${currentProject.videoId}`}
-            title={currentProject.title}
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowFullScreen
-          />
-        </div>
-
-        {/* Project information */}
-        <div className="space-y-4">
-          <h2 className="text-3xl md:text-4xl">
-            {currentProject.title}
-          </h2>
-
-          <p>{currentProject.client}</p>
-          <p>{currentProject.role}</p>
-        </div>
-      </div>
-
-      {/* Controls */}
-      <div className="mx-auto mt-10 flex w-full max-w-6xl items-center justify-between">
-
-        <button
-          onClick={previousProject}
-          aria-label="Previous project"
-          className="p-3 text-2xl"
-        >
-          ←
-        </button>
-
-        <div className="flex items-center gap-2">
-          {projects.map((project, index) => (
+            {/* Previous arrow */}
             <button
-              key={project.videoId}
-              onClick={() => setCurrentIndex(index)}
-              aria-label={`Go to project ${index + 1}`}
-              aria-current={index === currentIndex ? 'true' : undefined}
-              className={`h-2.5 w-2.5 rounded-full ${
-                index === currentIndex
-                  ? 'bg-[#7F011F]'
-                  : 'bg-[#E6C3C4]'
-              }`}
-            />
-          ))}
-        </div>
+                onClick={previousProject}
+                aria-label="Previous project"
+                className="p-2 text-2xl transition-opacity hover:opacity-50 md:text-3xl"
+            >
+                ←
+            </button>
 
-        <button
-          onClick={nextProject}
-          aria-label="Next project"
-          className="p-3 text-2xl"
-        >
-          →
-        </button>
-      </div>
-    </div>
-  );
+            {/* Video + project information */}
+            <div className="grid min-w-0 grid-cols-1 items-center gap-8 md:grid-cols-2">
+
+                {/* YouTube video */}
+                <div className="aspect-video w-full overflow-hidden bg-[#7F011F]">
+                <iframe
+                    key={currentProject.videoId}
+                    className="h-full w-full"
+                    src={`https://www.youtube-nocookie.com/embed/${currentProject.videoId}`}
+                    title={currentProject.title}
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowFullScreen
+                />
+                </div>
+
+                {/* Project information */}
+                <div className="space-y-4">
+                <h2 className="text-3xl md:text-4xl">
+                    {currentProject.title}
+                </h2>
+
+                <p>{currentProject.client}</p>
+                <p>{currentProject.role}</p>
+                </div>
+            </div>
+
+            {/* Next arrow */}
+            <button
+                onClick={nextProject}
+                aria-label="Next project"
+                className="p-2 text-2xl transition-opacity hover:opacity-50 md:text-3xl"
+            >
+                →
+            </button>
+            </div>
+
+            {/* Pagination dots stay underneath the content */}
+            <div className="mx-auto mt-10 flex w-full max-w-7xl items-center justify-center gap-2">
+            {projects.map((project, index) => (
+                <button
+                key={project.videoId}
+                onClick={() => setCurrentIndex(index)}
+                aria-label={`Go to project ${index + 1}`}
+                aria-current={index === currentIndex ? 'true' : undefined}
+                className={`h-2.5 w-2.5 rounded-full transition-colors ${
+                    index === currentIndex
+                    ? 'bg-[#7F011F]'
+                    : 'bg-[#E6C3C4]'
+                }`}
+                />
+            ))}
+            </div>
+        </div>
+    );
 }
